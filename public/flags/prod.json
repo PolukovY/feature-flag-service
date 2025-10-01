@@ -1,0 +1,21 @@
+{
+  "environment": "prod",
+  "updatedAt": "2025-09-28T18:30:00Z",
+  "flags": [
+    {
+      "featureName": "new_dashboard",
+      "featureValue": false,
+      "featureDescription": "New dashboard for admin users"
+    },
+    {
+      "featureName": "analytics_module",
+      "featureValue": false,
+      "featureDescription": "Enhanced analytics module with real-time data"
+    },
+    {
+      "featureName": "dark_mode",
+      "featureValue": true,
+      "featureDescription": "Dark mode UI theme support"
+    }
+  ]
+}

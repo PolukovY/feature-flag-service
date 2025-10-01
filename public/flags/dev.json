@@ -1,0 +1,45 @@
+{
+  "environment": "dev",
+  "updatedAt": "2025-10-01T00:00:00Z",
+  "flags": [
+    {
+      "featureName": "new_dashboard",
+      "featureValue": true,
+      "featureDescription": "New dashboard for admin users"
+    },
+    {
+      "featureName": "analytics_module",
+      "featureValue": false,
+      "featureDescription": "Enhanced analytics module with real-time data"
+    },
+    {
+      "featureName": "qa_testing_tab",
+      "featureContext": [
+        {
+          "type": "start_with",
+          "field_name": "email",
+          "field_value": "test"
+        }
+      ],
+      "featureValue": true,
+      "featureDescription": "Enable new tab for QA team members only"
+    },
+    {
+      "featureName": "beta_search",
+      "featureContext": [
+        {
+          "type": "equals",
+          "field_name": "domain",
+          "field_value": "internal.company.com"
+        }
+      ],
+      "featureValue": true,
+      "featureDescription": "Beta search functionality for internal users"
+    },
+    {
+      "featureName": "dark_mode",
+      "featureValue": true,
+      "featureDescription": "Dark mode UI theme support"
+    }
+  ]
+}
