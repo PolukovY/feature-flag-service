@@ -8,8 +8,8 @@ import type { Environment, FlagsData } from "@/types/flags"
 import { Clock, AlertCircle } from "lucide-react"
 
 // Configure your GitHub repository here
-const GITHUB_REPO_OWNER = "YOUR_GITHUB_USERNAME"
-const GITHUB_REPO_NAME = "YOUR_REPO_NAME"
+const GITHUB_REPO_OWNER = "polukovy"
+const GITHUB_REPO_NAME = "feature-flag-service"
 
 function App() {
   const [environment, setEnvironment] = useState<Environment>(() => {

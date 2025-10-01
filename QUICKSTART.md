@@ -2,23 +2,32 @@
 
 ## Development
 
+✅ **Already configured for polukovy/feature-flag-service**
+
 1. **Install dependencies:**
    ```bash
    npm install
    ```
 
-2. **Configure GitHub repository** in `src/App.tsx`:
-   ```typescript
-   const GITHUB_REPO_OWNER = "your-github-username"
-   const GITHUB_REPO_NAME = "your-repo-name"
-   ```
+2. **Start development server:**
 
-3. **Start dev server:**
+   **Option A - Node.js 20+:**
    ```bash
    npm run dev
+   # Open http://localhost:5173
    ```
 
-4. **Open browser:** http://localhost:5173
+   **Option B - Node.js 18 (workaround):**
+   ```bash
+   npm run build && npm run preview
+   # Open http://localhost:4173
+   ```
+
+3. **Configuration** (already set in `src/App.tsx`):
+   ```typescript
+   const GITHUB_REPO_OWNER = "polukovy"
+   const GITHUB_REPO_NAME = "feature-flag-service"
+   ```
 
 ## Deploy to GitHub Pages
 
@@ -42,13 +51,12 @@
    - Go to repository Settings → Pages
    - Set Source to "GitHub Actions"
 
-4. **Configure base path** in `vite.config.ts` if using repo subdirectory:
-   ```typescript
-   export default defineConfig({
-     base: '/your-repo-name/', // Change this
-     // ...
-   })
-   ```
+4. **Base path** (already configured):
+   - ✅ Uses `/` for local development
+   - ✅ Uses `/feature-flag-service/` for production builds
+   - No changes needed for polukovy/feature-flag-service
+
+   (See `vite.config.ts` for the auto-switching logic)
 
 5. **Push to trigger deployment:**
    ```bash

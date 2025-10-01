@@ -26,10 +26,14 @@ A static, read-only feature flag management system styled after Flipt/LaunchDark
 
 ### Prerequisites
 
-- **Node.js 20.19+ or 22.12+** (required by Vite 7)
+- **Node.js 20.19+ or 22.12+** (required for `npm run dev`)
 - npm or yarn
 
-> **Note:** This project uses Vite 7 which requires Node.js 20.19+. If you're using an older version of Node.js, you'll need to upgrade to run the development server.
+> **Note about Node.js version:**
+> - Vite 7 requires Node.js 20.19+ for the dev server (`npm run dev`)
+> - However, builds still work on Node 18 (warnings are safe to ignore)
+> - **Workaround for Node 18**: Use `npm run build && npm run preview` instead of `npm run dev`
+> - GitHub Actions uses Node.js 20, so deployment works perfectly
 
 ### Installation
 
@@ -85,14 +89,23 @@ Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
 
 ### Base Path Configuration
 
-If deploying to a subdirectory (e.g., `username.github.io/repo-name`), update `vite.config.ts`:
+✅ **Already configured for polukovy/feature-flag-service**
 
+The project automatically uses the correct base path:
+- **Local development** (`npm run dev`): Uses `/`
+- **Production build** (`npm run build`): Uses `/feature-flag-service/`
+
+This is configured in `vite.config.ts`:
 ```typescript
-export default defineConfig({
-  base: '/your-repo-name/',
-  // ... rest of config
+export default defineConfig(({ command, mode }) => {
+  const base = command === 'build' && mode === 'production'
+    ? '/feature-flag-service/'  // ← Change this for your repo
+    : '/'
+  // ...
 })
 ```
+
+**To use for a different repository**: Update `/feature-flag-service/` to `/your-repo-name/` in `vite.config.ts` line 9.
 
 ## Managing Feature Flags
 
