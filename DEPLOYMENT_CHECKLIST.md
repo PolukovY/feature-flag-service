@@ -131,6 +131,11 @@ If using a custom domain:
 
 ### Build fails in GitHub Actions
 
+**Error: "Cannot find module @rollup/rollup-linux-x64-gnu"**
+- ✅ Fixed: Workflow removes node_modules and package-lock.json before installing
+- This is a known npm bug with optional dependencies
+- The workflow now does a clean install on every build
+
 **Error: "npm ci can only install packages when..."**
 - ✅ Fixed: Workflow uses `npm install` instead of `npm ci`
 - Ensure `package-lock.json` is committed to repository

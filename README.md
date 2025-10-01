@@ -225,6 +225,26 @@ MIT
 3. Make your changes
 4. Submit a pull request
 
+## Troubleshooting
+
+### Common Issues
+
+**Build fails in GitHub Actions:**
+- See `.github/TROUBLESHOOTING.md` for detailed solutions
+- Check Actions tab for specific error messages
+- Verify GitHub Pages is enabled with "GitHub Actions" as source
+
+**Flags not loading:**
+- Verify JSON files exist in `public/flags/`
+- Check browser console for errors
+- Ensure JSON syntax is valid
+
+**GitHub PR flow broken:**
+- Update `GITHUB_REPO_OWNER` and `GITHUB_REPO_NAME` in `src/App.tsx`
+- Rebuild and redeploy
+
+For more troubleshooting help, see [.github/TROUBLESHOOTING.md](.github/TROUBLESHOOTING.md)
+
 ## Support
 
 For issues and questions, please open an issue on GitHub.
