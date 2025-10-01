@@ -33,7 +33,8 @@ function App() {
       setError(null)
 
       try {
-        const response = await fetch(`/flags/${environment}.json`)
+        // Use relative path from public folder (Vite handles base path automatically)
+        const response = await fetch(`./flags/${environment}.json`)
 
         if (!response.ok) {
           throw new Error(`Failed to load flags: ${response.statusText}`)
@@ -64,7 +65,8 @@ function App() {
   }, [environment, addToast])
 
   const handleOpenJSON = () => {
-    window.open(`/flags/${environment}.json`, "_blank", "noopener,noreferrer")
+    // Use relative path - Vite will resolve with base path automatically
+    window.open(`./flags/${environment}.json`, "_blank", "noopener,noreferrer")
   }
 
   const getTimeSince = (dateString: string) => {
